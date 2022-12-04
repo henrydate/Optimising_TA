@@ -111,17 +111,16 @@ To use machine learning through the Ensemble Method to filter accurate buy/sell 
   
   ### 3.5 Adding Layers to Neural Network
   
-      def create_model():
-	    # create model
-	    model = Sequential()
-	    model.add(Dropout(0.2, input_shape=(21,)))
-	    model.add(Dense(10, activation='relu', kernel_constraint=MaxNorm(3)))
-	    model.add(Dense(5, activation='relu', kernel_constraint=MaxNorm(3)))
-	    model.add(Dense(1, activation='sigmoid'))
-	    # Compile model
-	    sgd = SGD(learning_rate=0.1, momentum=0.9)
-	    model.compile(loss='binary_crossentropy', optimizer=sgd, metrics=['accuracy'])
-	    return model
+      'def model_demo():
+      	classifier_1 = Sequential()
+  		classifier_1.add(Dense(units=10, input_dim=20, kernel_initializer='uniform', activation='relu'))
+    	classifier_1.add(Dense(units=5, kernel_initializer='uniform', activation='relu'))
+    	classifier_1.add(Dense(units=1, kernel_initializer='uniform', activation='sigmoid'))
+    	classifier_1.compile(optimizer='adamax', loss='binary_crossentropy', metrics=['accuracy'])
+    	return classifier_1
+	model = model_demo()
+	model.fit(X_train,y_train, batch_size=20 , epochs=100, verbose=1,shuffle =True)
+	predicted_y = model.predict(X_test)'
   
   ### 3.6 Creating Ensemble   
   
@@ -229,7 +228,7 @@ weighted avg       0.79      0.85      0.81      1873
 
 ![](https://github.com/Danny-M108/Challenge-Two-/blob/main/chart_buy_SPY-daily_yf.png)	
 
- #### 4.9 ???
+ #### 4.9 Importance of Columns in Feature Dataframe
 
 ![](https://github.com/Danny-M108/Challenge-Two-/blob/main/feature_selection.png)
 
