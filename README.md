@@ -245,7 +245,7 @@ Future developments and enhancements to include:
 
 1. Risk and Return measurement and analysis through tools such as the Sharpe and Sortino ratios. 
 
-2. Profit and trading outcome comparison against indice performance. For example did the model outperform a simple 12 position (long or short) on the SP500. 
+2. Profit and trading outcome comparison against indice performance. For example did the model outperform a simple 12 month position (long or short) on the SP500. 
 
 3. Further technical indicators.
 
