@@ -255,7 +255,7 @@ Future developments and enhancements to include:
 
 6. Implementing a premium API for higher quality, lower timeframe data. 
 
-7. Include a neural network into ensemble
+
 	
   
 
