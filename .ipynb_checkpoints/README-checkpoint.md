@@ -7,7 +7,7 @@
 ## 1. Project Aim:   
 To build an interactive and intuitive trading BOT that optimises techical indicators through machine learning (Ensemble method) to provide highly accurate investment and trading recommendations. Importantly the BOT is to reliablely predict how price interacts with technical indicators (EMA) in order to maximise indicator trading performance.   
 
-The current version focuses on the SP500, Nasdaq 100, Russel 200, Dow Jones indices and ASX200. However the model can be for individual stocks - subject to data availability. 
+The current version focuses on the SP500, the Nasdaq 100 and Dow 30 indices. However the model can be for individual stocks - subject to data availability. 
 	
 A key feature of the BOT is to allow for a high degree of "fine tuning" through the Ensemble method. 
    
@@ -32,26 +32,19 @@ To use machine learning through the Ensemble Method to filter accurate buy/sell 
   
   ### 2.5 [Ensemble Methods](https://scikit-learn.org/stable/modules/ensemble.html)  
   The goal of ensemble methods is to combine the predictions of several base estimators built with a given learning algorithm in order to improve generalizability/  robustness over a single estimator.  
+  Ensemble methods use:
   
-Ensemble methods use:
-	
-#### 2.5.1 [Stacking](https://analyticsindiamag.com/a-beginners-guide-to-stacking-ensemble-deep-learning-models/#:~:text=the%20idea%20behind%20stack%20ensemble,learn%20using%20the%20intermediate%20predictions) the idea behind stack ensemble method is to handle a machine learning problem using different types of models that are capable of learning to an extent, not the whole space of the problem. Using these models we can make intermediate predictions and then add a new model that can learn using the intermediate predictions.  
-	
- [analyticsindiamag](https://analyticsindiamag.com)
-  
-  #### 2.5.2 [Logistic Regression](https://scikit-learn.org/stable/modules/generated/sklearn.linear_model.LogisticRegression.html?highlight=logistic+regression)  
+  #### 2.5.1 [Logistic Regression](https://scikit-learn.org/stable/modules/generated/sklearn.linear_model.LogisticRegression.html?highlight=logistic+regression)  
   In the multiclass case, the training algorithm uses the one-vs-rest (OvR) scheme if the ‘multi_class’ option is set to ‘ovr’, and uses the cross-entropy loss if the ‘multi_class’ option is set to ‘multinomial’. (Currently the ‘multinomial’ option is supported only by the ‘lbfgs’, ‘sag’, ‘saga’ and ‘newton-cg’ 	solvers.)  
 	
-  #### 2.5.3 [GaussianNB](https://scikit-learn.org/stable/modules/generated/sklearn.naive_bayes.GaussianNB.html?highlight=gaussiannb#sklearn.naive_bayes.GaussianNB)         
+  #### 2.5.2 [GaussianNB](https://scikit-learn.org/stable/modules/generated/sklearn.naive_bayes.GaussianNB.html?highlight=gaussiannb#sklearn.naive_bayes.GaussianNB)         
   Can perform online updates to model parameters via partial_fit. For details on algorithm used to update feature means and variance online, see Stanford CS tech         report STAN-CS-79-773 by Chan, Golub, and LeVeque. 
 	
-  #### 2.5.4 [XGBClassifier](https://scikit-learn.org/stable/modules/generated/sklearn.ensemble.GradientBoostingClassifier.html)    
+  #### 2.5.3 [XGBClassifier](https://scikit-learn.org/stable/modules/generated/sklearn.ensemble.GradientBoostingClassifier.html)    
   This algorithm builds an additive model in a forward stage-wise fashion; it allows for the optimization of arbitrary differentiable loss functions. In each stage       n_classes_ regression trees are fit on the negative gradient of the loss function, e.g. binary or multiclass log loss. Binary classification is a special case         where only a single regression tree is induced.  
 	
   #### 2.5.4 [Voting Classifier](https://scikit-learn.org/stable/modules/ensemble.html#voting-classifier)  
   The idea behind the VotingClassifier is to combine conceptually different machine learning classifiers and use a majority vote or the average predicted                 probabilities (soft vote) to predict the class labels. Such a classifier can be useful for a set of equally well performing models in order to balance out             their individual weaknesses.
-	
-[scikit-learn](https://scikit-learn.org/)
     
   ### 2.6 [Amazon LEX](https://aws.amazon.com/lex/)  
   Easily add AI that understands intent, maintains context, and automates simple tasks across many languages.
@@ -118,16 +111,17 @@ Ensemble methods use:
   
   ### 3.5 Adding Layers to Neural Network
   
-      'def model_demo():
-      	classifier_1 = Sequential()
-  		classifier_1.add(Dense(units=10, input_dim=20, kernel_initializer='uniform', activation='relu'))
-    	classifier_1.add(Dense(units=5, kernel_initializer='uniform', activation='relu'))
-    	classifier_1.add(Dense(units=1, kernel_initializer='uniform', activation='sigmoid'))
-    	classifier_1.compile(optimizer='adamax', loss='binary_crossentropy', metrics=['accuracy'])
-    	return classifier_1
-	model = model_demo()
-	model.fit(X_train,y_train, batch_size=20 , epochs=100, verbose=1,shuffle =True)
-	predicted_y = model.predict(X_test)'
+      def create_model():
+	    # create model
+	    model = Sequential()
+	    model.add(Dropout(0.2, input_shape=(21,)))
+	    model.add(Dense(10, activation='relu', kernel_constraint=MaxNorm(3)))
+	    model.add(Dense(5, activation='relu', kernel_constraint=MaxNorm(3)))
+	    model.add(Dense(1, activation='sigmoid'))
+	    # Compile model
+	    sgd = SGD(learning_rate=0.1, momentum=0.9)
+	    model.compile(loss='binary_crossentropy', optimizer=sgd, metrics=['accuracy'])
+	    return model
   
   ### 3.6 Creating Ensemble   
   
@@ -177,9 +171,10 @@ Ensemble methods use:
            1       1.00      0.89      0.94       853
            2       0.00      0.00      0.00       181
 
-   	 accuracy                           0.85      1873
-  	 macro avg       0.58      0.63      0.60      1873
-	weighted avg       0.79      0.85      0.81      1873
+    accuracy                           0.85      1873
+   macro avg       0.58      0.63      0.60      1873
+weighted avg       0.79      0.85      0.81      1873
+
 ### 4.3 
 	INPUT
  	# Create a new empty predictions DataFrame using code provided below.
@@ -230,13 +225,17 @@ Ensemble methods use:
 	
 ![](https://github.com/Danny-M108/Challenge-Two-/blob/main/actual_vs_model_cumprod_of_returns_spy_daily_yf.png)
 
- #### 4.8 Buy Triggers
+ #### 4.8 Buy Signals
 
 ![](https://github.com/Danny-M108/Challenge-Two-/blob/main/chart_buy_SPY-daily_yf.png)	
 
- #### 4.9 Importance of Columns in Feature Dataframe
+ #### 4.9 ???
 
 ![](https://github.com/Danny-M108/Challenge-Two-/blob/main/feature_selection.png)
+
+ #### 4.9 ????
+
+![](https://github.com/Danny-M108/Challenge-Two-/blob/main/feature_selection_AXJO_yf_daily.png)
 	
 ## 5 Future Developments and Enhancements:
 
@@ -249,12 +248,6 @@ Future developments and enhancements to include:
 3. Further technical indicators.
 
 4. Further fine tuning of the Ensemble code.
-
-5. Adding brockerage and trading fees to the model
-
-6. Implementing a premium API for higher quality, lower timeframe data. 
-
-7. Include a neural network into ensemble
 	
   
 
