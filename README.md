@@ -32,15 +32,20 @@ To use machine learning through the Ensemble Method to filter accurate buy/sell 
   
   ### 2.5 [Ensemble Methods](https://scikit-learn.org/stable/modules/ensemble.html)  
   The goal of ensemble methods is to combine the predictions of several base estimators built with a given learning algorithm in order to improve generalizability/  robustness over a single estimator.  
-  Ensemble methods use:
   
-  #### 2.5.1 [Logistic Regression](https://scikit-learn.org/stable/modules/generated/sklearn.linear_model.LogisticRegression.html?highlight=logistic+regression)  
+Ensemble methods use:
+	
+#### 2.5.1 [Stacking](https://analyticsindiamag.com/a-beginners-guide-to-stacking-ensemble-deep-learning-models/#:~:text=the%20idea%20behind%20stack%20ensemble,learn%20using%20the%20intermediate%20predictions) the idea behind stack ensemble method is to handle a machine learning problem using different types of models that are capable of learning to an extent, not the whole space of the problem. Using these models we can make intermediate predictions and then add a new model that can learn using the intermediate predictions.  
+	
+ [analyticsindiamag](https://analyticsindiamag.com)
+  
+  #### 2.5.2 [Logistic Regression](https://scikit-learn.org/stable/modules/generated/sklearn.linear_model.LogisticRegression.html?highlight=logistic+regression)  
   In the multiclass case, the training algorithm uses the one-vs-rest (OvR) scheme if the ‘multi_class’ option is set to ‘ovr’, and uses the cross-entropy loss if the ‘multi_class’ option is set to ‘multinomial’. (Currently the ‘multinomial’ option is supported only by the ‘lbfgs’, ‘sag’, ‘saga’ and ‘newton-cg’ 	solvers.)  
 	
-  #### 2.5.2 [GaussianNB](https://scikit-learn.org/stable/modules/generated/sklearn.naive_bayes.GaussianNB.html?highlight=gaussiannb#sklearn.naive_bayes.GaussianNB)         
+  #### 2.5.3 [GaussianNB](https://scikit-learn.org/stable/modules/generated/sklearn.naive_bayes.GaussianNB.html?highlight=gaussiannb#sklearn.naive_bayes.GaussianNB)         
   Can perform online updates to model parameters via partial_fit. For details on algorithm used to update feature means and variance online, see Stanford CS tech         report STAN-CS-79-773 by Chan, Golub, and LeVeque. 
 	
-  #### 2.5.3 [XGBClassifier](https://scikit-learn.org/stable/modules/generated/sklearn.ensemble.GradientBoostingClassifier.html)    
+  #### 2.5.4 [XGBClassifier](https://scikit-learn.org/stable/modules/generated/sklearn.ensemble.GradientBoostingClassifier.html)    
   This algorithm builds an additive model in a forward stage-wise fashion; it allows for the optimization of arbitrary differentiable loss functions. In each stage       n_classes_ regression trees are fit on the negative gradient of the loss function, e.g. binary or multiclass log loss. Binary classification is a special case         where only a single regression tree is induced.  
 	
   #### 2.5.4 [Voting Classifier](https://scikit-learn.org/stable/modules/ensemble.html#voting-classifier)  
