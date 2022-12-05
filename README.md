@@ -7,7 +7,7 @@
 ## 1. Project Aim:   
 To build an interactive and intuitive trading BOT that optimises techical indicators through machine learning (Ensemble method) to provide highly accurate investment and trading recommendations. Importantly the BOT is to reliablely predict how price interacts with technical indicators (EMA) in order to maximise indicator trading performance.   
 
-The current version focuses on the SP500, the Nasdaq 100 and Dow 30 indices. However the model can be for individual stocks - subject to data availability. 
+The current version focuses on the SP500, Nasdaq 100, Russel 200, Dow Jones indices and ASX200. However the model can be for individual stocks - subject to data availability. 
 	
 A key feature of the BOT is to allow for a high degree of "fine tuning" through the Ensemble method. 
    
