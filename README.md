@@ -45,6 +45,8 @@ To use machine learning through the Ensemble Method to filter accurate buy/sell 
 	
   #### 2.5.4 [Voting Classifier](https://scikit-learn.org/stable/modules/ensemble.html#voting-classifier)  
   The idea behind the VotingClassifier is to combine conceptually different machine learning classifiers and use a majority vote or the average predicted                 probabilities (soft vote) to predict the class labels. Such a classifier can be useful for a set of equally well performing models in order to balance out             their individual weaknesses.
+	
+[scikit-learn](https://scikit-learn.org/)
     
   ### 2.6 [Amazon LEX](https://aws.amazon.com/lex/)  
   Easily add AI that understands intent, maintains context, and automates simple tasks across many languages.
@@ -243,11 +245,11 @@ Future developments and enhancements to include:
 
 4. Further fine tuning of the Ensemble code.
 
-5. Adding brockerage commissions, trading fees to the model.
+5. Adding brockerage and trading fees to the model
 
-6. Implementing a premium API for lower timeframe data.
+6. Implementing a premium API for higher quality, lower timeframe data. 
 
-7. Include a neural network into ensemble.
+7. Include a neural network into ensemble
 	
   
 
