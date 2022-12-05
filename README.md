@@ -157,7 +157,7 @@ To use machine learning through the Ensemble Method to filter accurate buy/sell 
 	
 ### 4.2
 	INPUT
-	from sklearn.metrics import classification_report
+	'from sklearn.metrics import classification_report
 	testing_signal_predictions = eclf.predict(X_test)
 	 # Evaluate the model's ability to predict the trading signal for the testing data
 	ensemble_classification_report = classification_report(y_test, testing_signal_predictions)
@@ -172,7 +172,7 @@ To use machine learning through the Ensemble Method to filter accurate buy/sell 
 
     accuracy                           0.85      1873
    macro avg       0.58      0.63      0.60      1873
-weighted avg       0.79      0.85      0.81      1873
+weighted avg       0.79      0.85      0.81      1873'
 
 ### 4.3 
 	INPUT
