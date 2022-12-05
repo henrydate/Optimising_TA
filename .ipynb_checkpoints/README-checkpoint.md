@@ -7,7 +7,7 @@
 ## 1. Project Aim:   
 To build an interactive and intuitive trading BOT that optimises techical indicators through machine learning (Ensemble method) to provide highly accurate investment and trading recommendations. Importantly the BOT is to reliablely predict how price interacts with technical indicators (EMA) in order to maximise indicator trading performance.   
 
-The current version focuses on the SP500, Nasdaq 100, Russel 200, Dow Jones indices and ASX200. However the model can be for individual stocks - subject to data availability. 
+The current version focuses on the SP500, the Nasdaq 100 and Dow 30 indices. However the model can be for individual stocks - subject to data availability. 
 	
 A key feature of the BOT is to allow for a high degree of "fine tuning" through the Ensemble method. 
    
@@ -111,16 +111,17 @@ To use machine learning through the Ensemble Method to filter accurate buy/sell 
   
   ### 3.5 Adding Layers to Neural Network
   
-      'def model_demo():
-      	classifier_1 = Sequential()
-  		classifier_1.add(Dense(units=10, input_dim=20, kernel_initializer='uniform', activation='relu'))
-    	classifier_1.add(Dense(units=5, kernel_initializer='uniform', activation='relu'))
-    	classifier_1.add(Dense(units=1, kernel_initializer='uniform', activation='sigmoid'))
-    	classifier_1.compile(optimizer='adamax', loss='binary_crossentropy', metrics=['accuracy'])
-    	return classifier_1
-	model = model_demo()
-	model.fit(X_train,y_train, batch_size=20 , epochs=100, verbose=1,shuffle =True)
-	predicted_y = model.predict(X_test)'
+      def create_model():
+	    # create model
+	    model = Sequential()
+	    model.add(Dropout(0.2, input_shape=(21,)))
+	    model.add(Dense(10, activation='relu', kernel_constraint=MaxNorm(3)))
+	    model.add(Dense(5, activation='relu', kernel_constraint=MaxNorm(3)))
+	    model.add(Dense(1, activation='sigmoid'))
+	    # Compile model
+	    sgd = SGD(learning_rate=0.1, momentum=0.9)
+	    model.compile(loss='binary_crossentropy', optimizer=sgd, metrics=['accuracy'])
+	    return model
   
   ### 3.6 Creating Ensemble   
   
@@ -170,9 +171,10 @@ To use machine learning through the Ensemble Method to filter accurate buy/sell 
            1       1.00      0.89      0.94       853
            2       0.00      0.00      0.00       181
 
-   	 accuracy                           0.85      1873
-  	 macro avg       0.58      0.63      0.60      1873
-	weighted avg       0.79      0.85      0.81      1873
+    accuracy                           0.85      1873
+   macro avg       0.58      0.63      0.60      1873
+weighted avg       0.79      0.85      0.81      1873
+
 ### 4.3 
 	INPUT
  	# Create a new empty predictions DataFrame using code provided below.
@@ -223,13 +225,17 @@ To use machine learning through the Ensemble Method to filter accurate buy/sell 
 	
 ![](https://github.com/Danny-M108/Challenge-Two-/blob/main/actual_vs_model_cumprod_of_returns_spy_daily_yf.png)
 
- #### 4.8 Buy Triggers
+ #### 4.8 Buy Signals
 
 ![](https://github.com/Danny-M108/Challenge-Two-/blob/main/chart_buy_SPY-daily_yf.png)	
 
- #### 4.9 Importance of Columns in Feature Dataframe
+ #### 4.9 ???
 
 ![](https://github.com/Danny-M108/Challenge-Two-/blob/main/feature_selection.png)
+
+ #### 4.9 ????
+
+![](https://github.com/Danny-M108/Challenge-Two-/blob/main/feature_selection_AXJO_yf_daily.png)
 	
 ## 5 Future Developments and Enhancements:
 
@@ -242,12 +248,6 @@ Future developments and enhancements to include:
 3. Further technical indicators.
 
 4. Further fine tuning of the Ensemble code.
-
-5. Adding brockerage commissions, trading fees to the model.
-
-6. Implementing a premium API for lower timeframe data.
-
-7. Include a neural network into ensemble.
 	
   
 
