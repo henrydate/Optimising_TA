@@ -157,7 +157,7 @@ To use machine learning through the Ensemble Method to filter accurate buy/sell 
 	
 ### 4.2
 	INPUT
-	'from sklearn.metrics import classification_report
+	from sklearn.metrics import classification_report
 	testing_signal_predictions = eclf.predict(X_test)
 	 # Evaluate the model's ability to predict the trading signal for the testing data
 	ensemble_classification_report = classification_report(y_test, testing_signal_predictions)
@@ -170,10 +170,9 @@ To use machine learning through the Ensemble Method to filter accurate buy/sell 
            1       1.00      0.89      0.94       853
            2       0.00      0.00      0.00       181
 
-    accuracy                           0.85      1873
-   macro avg       0.58      0.63      0.60      1873
-weighted avg       0.79      0.85      0.81      1873'
-
+   	 accuracy                           0.85      1873
+  	 macro avg       0.58      0.63      0.60      1873
+	weighted avg       0.79      0.85      0.81      1873
 ### 4.3 
 	INPUT
  	# Create a new empty predictions DataFrame using code provided below.
@@ -224,17 +223,13 @@ weighted avg       0.79      0.85      0.81      1873'
 	
 ![](https://github.com/Danny-M108/Challenge-Two-/blob/main/actual_vs_model_cumprod_of_returns_spy_daily_yf.png)
 
- #### 4.8 Buy Signals
+ #### 4.8 Buy Triggers
 
 ![](https://github.com/Danny-M108/Challenge-Two-/blob/main/chart_buy_SPY-daily_yf.png)	
 
  #### 4.9 Importance of Columns in Feature Dataframe
 
 ![](https://github.com/Danny-M108/Challenge-Two-/blob/main/feature_selection.png)
-
- #### 4.9 ????
-
-![](https://github.com/Danny-M108/Challenge-Two-/blob/main/feature_selection_AXJO_yf_daily.png)
 	
 ## 5 Future Developments and Enhancements:
 
