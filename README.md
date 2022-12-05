@@ -35,7 +35,8 @@ To use machine learning through the Ensemble Method to filter accurate buy/sell 
   
 Ensemble methods use:
 	
-#### 2.5.1 [Stacking](https://analyticsindiamag.com/a-beginners-guide-to-stacking-ensemble-deep-learning-models/#:~:text=the%20idea%20behind%20stack%20ensemble,learn%20using%20the%20intermediate%20predictions) the idea behind stack ensemble method is to handle a machine learning problem using different types of models that are capable of learning to an extent, not the whole space of the problem. Using these models we can make intermediate predictions and then add a new model that can learn using the intermediate predictions.  
+#### 2.5.1 [Stacking](https://analyticsindiamag.com/a-beginners-guide-to-stacking-ensemble-deep-learning-models/#:~:text=the%20idea%20behind%20stack%20ensemble,learn%20using%20the%20intermediate%20predictions) the idea behind stack ensemble method is to handle a machine learning problem using different types of models that are capable of learning to an extent, not the whole space of the problem. Using these models we can make intermediate predictions and then add a new model that can learn using the intermediate predictions.                                                                      
+![](https://github.com/henrydate/Optimising_TA/blob/main/stacking%20method.png)
 	
  [analyticsindiamag](https://analyticsindiamag.com)
   
