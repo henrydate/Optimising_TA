@@ -2,7 +2,7 @@
 # <div align = "center"> Challenge-Two
 ## <div align = "center"> Team Two
 ### <div align = "center"> Akhil Kavuri, Brendan Van Maanen, Danny Milsom, Henry Date and Ling Dong
-#### <div align = "center"> *AN INTERACTIVE TRADING & INVESTEMENT MACHINE BOT*
+#### <div align = "center"> *AN INTERACTIVE TRADING & INVESTMENT MACHINE BOT*
 
 ## 1. Project Aim:   
 To build an interactive and intuitive trading BOT that optimises techical indicators through machine learning (Ensemble method) to provide highly accurate investment and trading recommendations. Importantly the BOT is to reliablely predict how price interacts with technical indicators (EMA) in order to maximise indicator trading performance.   
